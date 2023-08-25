@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "98b64fa0-475c-4b21-a316-0714b330f033",
+		"name": "NodeCamp2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25313778"
+	},
+	"item": [
+		{
+			"name": "Get All Users (Admin Authorized)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWY4IiwiaXNBZG1pbiI6dHJ1ZSwidXNlcklkIjoiNjRlODZkMGZhYjZkMjBhYzQwNWU5NTJmIiwiaWF0IjoxNjkyOTUzOTExLCJleHAiOjE3MjQ0ODk5MTF9.6DVzACrqiy3v07S0LlIhaLpyfzH1xtrjz66gycZ5d2A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1212/auth/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"auth",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Soft Delete User (Admin Auth)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1212/auth/delete/:userID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"auth",
+						"delete",
+						":userID"
+					],
+					"variable": [
+						{
+							"key": "userID",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"username\": \"elif9\",\n        \"password\": \"199844\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1212/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWY0IiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY5Mjg5NDM4NSwiZXhwIjoxNzI0NDMwMzg1fQ.kCeC3pHlhvKzU_IuiUg-JRPyJEEWqOVECSDGxmZ2nJo",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"username\": \"elif8\",\n        \"password\": \"199844\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1212/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Tweet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWY4IiwiaXNBZG1pbiI6dHJ1ZSwidXNlcklkIjoiNjRlODZkMGZhYjZkMjBhYzQwNWU5NTJmIiwiaWF0IjoxNjkyOTUzOTExLCJleHAiOjE3MjQ0ODk5MTF9.6DVzACrqiy3v07S0LlIhaLpyfzH1xtrjz66gycZ5d2A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"tweet\": \"Hello there ben elif8 adminim. bu 13. tweet, today I created a REST API\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1212/tweet/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"tweet",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tweets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWY4IiwiaXNBZG1pbiI6dHJ1ZSwidXNlcklkIjoiNjRlODZkMGZhYjZkMjBhYzQwNWU5NTJmIiwiaWF0IjoxNjkyOTUzOTExLCJleHAiOjE3MjQ0ODk5MTF9.6DVzACrqiy3v07S0LlIhaLpyfzH1xtrjz66gycZ5d2A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1212/tweet/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"tweet",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Tweet",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWY4IiwiaXNBZG1pbiI6dHJ1ZSwidXNlcklkIjoiNjRlODZkMGZhYjZkMjBhYzQwNWU5NTJmIiwiaWF0IjoxNjkyOTUzOTExLCJleHAiOjE3MjQ0ODk5MTF9.6DVzACrqiy3v07S0LlIhaLpyfzH1xtrjz66gycZ5d2A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tweet\": \"Hello, this is updated tweet 2nd 3th\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1212/tweet/update/64e88d57558cbd96298f8674",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"tweet",
+						"update",
+						"64e88d57558cbd96298f8674"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Soft Delete Tweet",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWY4IiwiaXNBZG1pbiI6dHJ1ZSwidXNlcklkIjoiNjRlODZkMGZhYjZkMjBhYzQwNWU5NTJmIiwiaWF0IjoxNjkyOTUzOTExLCJleHAiOjE3MjQ0ODk5MTF9.6DVzACrqiy3v07S0LlIhaLpyfzH1xtrjz66gycZ5d2A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1212/tweet/delete/64e78874be5de0991c0ad807",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"tweet",
+						"delete",
+						"64e78874be5de0991c0ad807"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like Tweet",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWY4IiwiaXNBZG1pbiI6dHJ1ZSwidXNlcklkIjoiNjRlODZkMGZhYjZkMjBhYzQwNWU5NTJmIiwiaWF0IjoxNjkyOTUzOTExLCJleHAiOjE3MjQ0ODk5MTF9.6DVzACrqiy3v07S0LlIhaLpyfzH1xtrjz66gycZ5d2A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1212/tweet/like/64e78874be5de0991c0ad807",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"tweet",
+						"like",
+						"64e78874be5de0991c0ad807"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment Tweet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWY4IiwiaXNBZG1pbiI6dHJ1ZSwidXNlcklkIjoiNjRlODZkMGZhYjZkMjBhYzQwNWU5NTJmIiwiaWF0IjoxNjkyOTUzOTExLCJleHAiOjE3MjQ0ODk5MTF9.6DVzACrqiy3v07S0LlIhaLpyfzH1xtrjz66gycZ5d2A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment\": \"hey I like your tweet 5th comment\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1212/tweet/comment/64e86b2a08bc8fa4d54cf934",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1212",
+					"path": [
+						"tweet",
+						"comment",
+						"64e86b2a08bc8fa4d54cf934"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
