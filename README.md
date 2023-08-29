@@ -1,6 +1,5 @@
 # TWEET REST API
 
-- .env dsoyasını bilerek ignore etmedim.
 - Ana dizinde bulunan NodeCamp2.postman_collection.json dosyasında postman testlerini export ettim.
 
 ## EXTRAS
