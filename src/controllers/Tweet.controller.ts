@@ -136,6 +136,31 @@ export const getTweet = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
+export const getUserTweets=  (  
+  req: Request,
+  res: Response,
+  next: NextFunction)=>{
+    try{
+    const userId=req.userId;
+    if(!userId){    
+      return res.status(StatusCodes.UNAUTHORIZED).json({message: "UNAUTHORIZED Access"})
+    }
+    Tweet.find({isDeleted:false}).then((result)=>{
+      if(!result){
+        return res.status(StatusCodes.NOT_FOUND).json({message: "No Tweets Found"})
+      }
+
+      res.status(StatusCodes.OK).json({ userTweets: result });
+    }).catch((err)=>{
+       console.error(err)
+       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({message1: err})
+    })
+    }catch(err){
+       console.error(err);
+       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({message2: err})
+    }
+}
+
 export const getAllTweets = (
   req: Request,
   res: Response,
@@ -162,18 +187,20 @@ export const getAllTweets = (
 };
 
 export const likeTweet = (req: Request, res: Response, next: NextFunction) => {
+  
   const tweetId = req.params.id;
+  const {userId}=req;
 
   try {
     Tweet.findOneAndUpdate(
-      { _id: tweetId, isDeleted: false },
-      { $inc: { likes: 1 } }
+      { _id: tweetId, isDeleted: false, "likes.userId":{$ne: userId} },
+      { $push: { likes: {userId} } }
     )
       .then((result) => {
         if (!result) {
           return res
-            .status(StatusCodes.NOT_FOUND)
-            .json({ message: "Tweet not found" });
+            .status(StatusCodes.BAD_REQUEST)
+            .json({ message: "You already liked the tweet or the tweet is already deleted" });
         }
 
         return res.status(StatusCodes.OK).json(result);

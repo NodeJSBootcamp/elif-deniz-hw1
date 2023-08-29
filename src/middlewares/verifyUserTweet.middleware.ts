@@ -2,7 +2,7 @@ import { RequestHandler } from "express";
 import Tweet from "../model/Tweet.model";
 import { StatusCodes } from "http-status-codes";
 
-export const verifyUser: RequestHandler = (req, res, next) => {
+export const verifyUserTweet: RequestHandler = (req, res, next) => {
   const tweetId = req.params.id;
   const userId = req.userId;
   //as string

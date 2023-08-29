@@ -6,11 +6,10 @@ export const verifyUserActions: RequestHandler = (req, res, next) => {
   console.log("verifyUserAction");
   const tweetId = req.params.id;
   const userId = req.userId;
-  //as string
 
   if (!tweetId)
     return res
-      .status(StatusCodes.BAD_REQUEST)
+      .status(StatusCodes.NOT_FOUND)
       .json({ message: "No tweet founddd" });
   if (!userId)
     return res
